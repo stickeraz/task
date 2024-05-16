@@ -63,7 +63,7 @@
                 event.target.value = event.target.value.toUpperCase();
             });
 
-            const form = document.getElementById('checkinForm');
+            const form = document.getElementById('Form');
             form.addEventListener('submit', (event) => {
                 event.preventDefault();
                 const formData = new FormData(form);
@@ -72,8 +72,8 @@
                     body: formData
                 }).then(response => response.text())
                 .then(result => {
-                    alert('Thank you! Your check-in/check-out has been recorded.');
-                    window.location.href = 'https://stickeraz.com';
+                    alert('Thank you! Your action has been recorded.');
+                    window.location.href = 'https://stickeraz.github.io/task/';
                 }).catch(error => {
                     console.error('Error:', error);
                 });
