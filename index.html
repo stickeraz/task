@@ -57,6 +57,30 @@
             border: 2px solid black;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const nameInput = document.getElementById('name');
+            nameInput.addEventListener('input', (event) => {
+                event.target.value = event.target.value.toUpperCase();
+            });
+
+            const form = document.getElementById('checkinForm');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const formData = new FormData(form);
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                }).then(response => response.text())
+                .then(result => {
+                    alert('Thank you! Your check-in/check-out has been recorded.');
+                    window.location.href = 'https://stickeraz.com';
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
